@@ -8,11 +8,6 @@ COLABFOLDDIR="${CURRENTPATH}/colabfold_batch"
 
 mkdir -p ${COLABFOLDDIR}
 cd ${COLABFOLDDIR}
-wget -q -P . https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash ./Miniconda3-latest-Linux-x86_64.sh -b -p ${COLABFOLDDIR}/conda
-rm Miniconda3-latest-Linux-x86_64.sh
-. "${COLABFOLDDIR}/conda/etc/profile.d/conda.sh"
-export PATH="${COLABFOLDDIR}/conda/condabin:${PATH}"
 conda create -p $COLABFOLDDIR/colabfold-conda python=3.7 -y
 conda activate $COLABFOLDDIR/colabfold-conda
 conda update -n base conda -y
@@ -40,7 +35,6 @@ export TF_FORCE_UNIFIED_MEMORY="1"
 export XLA_PYTHON_CLIENT_MEM_FRACTION="4.0"
 export COLABFOLDDIR=$COLABFOLDDIR
 export XDG_CACHE_HOME="\${COLABFOLDDIR}"
-export PATH="\${COLABFOLDDIR}/colabfold-conda/bin:\$PATH"
 \$COLABFOLDDIR/colabfold-conda/bin/colabfold_batch \$@
 EOF
 chmod +x colabfold_batch

@@ -11,9 +11,6 @@ pushd $COLABFOLDDIR || { echo "${COLABFOLDDIR} is not present." ; exit 1 ; }
 
 # get absolute path of COLABFOLDDIR
 COLABFOLDDIR=$(cd $(dirname colabfold_batch); pwd)
-# activate conda in $COLABFOLDDIR/conda
-. ${COLABFOLDDIR}/conda/etc/profile.d/conda.sh
-export PATH="${COLABFOLDDIR}/conda/condabin:${PATH}"
 conda activate $COLABFOLDDIR/colabfold-conda
 # reinstall colabfold and alphafold-colabfold
 python3.7 -m pip uninstall "colabfold[alphafold] @ git+https://github.com/sokrypton/ColabFold" -y
