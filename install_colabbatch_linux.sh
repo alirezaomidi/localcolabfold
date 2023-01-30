@@ -13,7 +13,7 @@ conda activate $COLABFOLDDIR/colabfold-conda
 conda update -n base conda -y
 conda install -c conda-forge python=3.7 cudnn==8.2.1.32 cudatoolkit==11.1.1 openmm==7.5.1 pdbfixer -y
 # Download the updater
-wget -qnc https://raw.githubusercontent.com/YoshitakaMo/localcolabfold/main/update_linux.sh --no-check-certificate
+wget -qnc https://raw.githubusercontent.com/alirezaomidi/localcolabfold/main/update_linux.sh --no-check-certificate
 chmod +x update_linux.sh
 # install alignment tools
 conda install -c conda-forge -c bioconda kalign3=3.2.2 hhsuite=3.3.0 -y
